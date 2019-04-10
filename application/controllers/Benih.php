@@ -1,13 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Benih extends AUTH_Controller {
-	public function __construct() {
+class Benih extends AUTH_Controller
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('M_benih');
 	}
 
-	public function index() {
+	public function index()
+	{
 		$data['userdata'] 	= $this->userdata;
 		$data['dataBenih'] 	= $this->M_benih->select_all();
 
@@ -18,14 +21,25 @@ class Benih extends AUTH_Controller {
 		$data['modal_tambah_benih'] = show_my_modal('modals/modal_tambah_benih', 'tambah-benih', $data);
 
 		$this->template->views('benih/home', $data);
+		// $this->load->view('templates_admin/header', $data);
+		// $this->load->view('templates_admin/sidebar', $data);
+		// $this->load->view('templates_admin/topbar', $data);
+		// $this->load->view('benih/home', $data);
+		// $this->load->view('templates_admin/footer', $data);
 	}
 
-	public function tampil() {
+	public function tampil()
+	{
+		$data['userdata'] 	= $this->userdata;
+
+		$id 								= trim($_POST['id']);
+		// $data['dataBenih'] 	= $this->M_benih->select_by_id($id);
 		$data['dataBenih'] = $this->M_benih->select_all();
 		$this->load->view('benih/list_data', $data);
 	}
 
-	public function prosesTambah() {
+	public function prosesTambah()
+	{
 		$this->form_validation->set_rules('komoditi', 'Komoditas Benih', 'trim|required');
 		$this->form_validation->set_rules('varietas_klon', 'Varietas atau Klon', 'trim|required');
 		$this->form_validation->set_rules('bulan_tanam', 'Bulan Tanam', 'trim|required');
@@ -34,7 +48,7 @@ class Benih extends AUTH_Controller {
 		$this->form_validation->set_rules('akhir_masa_edar', 'Akhir Masa Edar', 'trim|required');
 
 		$data 	= $this->input->post();
-		if ($this->form_validation->run() == TRUE) {
+		if ($this->form_validation->run() == true) {
 			$result = $this->M_benih->insert($data);
 
 			if ($result > 0) {
@@ -52,7 +66,8 @@ class Benih extends AUTH_Controller {
 		echo json_encode($out);
 	}
 
-	public function update() {
+	public function update()
+	{
 		$data['userdata'] 	= $this->userdata;
 
 		$id 								= trim($_POST['id']);
@@ -61,11 +76,12 @@ class Benih extends AUTH_Controller {
 		echo show_my_modal('modals/modal_update_benih', 'update-benih', $data);
 	}
 
-	public function prosesUpdate() {
+	public function prosesUpdate()
+	{
 		$this->form_validation->set_rules('id_benih', 'Benih', 'trim|required');
 
 		$data 	= $this->input->post();
-		if ($this->form_validation->run() == TRUE) {
+		if ($this->form_validation->run() == true) {
 			$result = $this->M_benih->update($data);
 
 			if ($result > 0) {
@@ -83,10 +99,11 @@ class Benih extends AUTH_Controller {
 		echo json_encode($out);
 	}
 
-	public function delete() {
+	public function delete()
+	{
 		$id = $_POST['id'];
 		$result = $this->M_benih->delete($id);
-		
+
 		if ($result > 0) {
 			echo show_succ_msg('Data Benih Berhasil dihapus', '20px');
 		} else {
@@ -94,7 +111,8 @@ class Benih extends AUTH_Controller {
 		}
 	}
 
-	public function detail() {
+	public function detail()
+	{
 		$data['userdata'] 	= $this->userdata;
 
 		$id 								= trim($_POST['id']);
@@ -105,4 +123,3 @@ class Benih extends AUTH_Controller {
 }
 
 /* End of file Benih.php */
-/* Location: ./application/controllers/Benih.php */

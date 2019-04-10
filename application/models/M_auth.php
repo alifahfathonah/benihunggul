@@ -1,8 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_auth extends CI_Model {
-	public function login($user, $pass) {
+class M_auth extends CI_Model
+{
+	public function login($user, $pass)
+	{
 		$this->db->select('*');
 		$this->db->from('admin');
 		$this->db->where('username', $user);
@@ -16,7 +18,26 @@ class M_auth extends CI_Model {
 			return false;
 		}
 	}
+
+	public function tambah_produsen()
+	{
+		$id_produsen				= $this->input->post('id_produsen');
+		$npwp								= $this->input->post('npwp');
+		$nama_perusahaan 		=	$this->input->post('nama_perusahaan');
+		$pimpinan						= $this->input->post('pimpinan');
+		$alamat_perusahaan 	=	$this->input->post('alamat_perusahaan');
+		$jenis_usaha				= $this->input->post('jenis_usaha');
+
+		$data = array(
+			'npwp' => $npwp,
+			'nama_perusahaan' => $nama_perusahaan,
+			'pimpinan' => $pimpinan,
+			'alamat_perusahaan' => $alamat_perusahaan,
+			'jenis_usaha' => $jenis_usaha
+		);
+
+		$this->db->insert('produsen', $data);
+	}
 }
 
 /* End of file M_auth.php */
-/* Location: ./application/models/M_auth.php */

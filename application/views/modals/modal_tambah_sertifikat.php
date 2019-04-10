@@ -1,68 +1,71 @@
 <div class="col-md-offset-1 col-md-10 col-md-offset-1 well">
-  <div class="form-msg"></div>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <h3 style="display:block; text-align:center;">Tambah Data Sertifikat</h3>
+    <div class="form-msg"></div>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h3 style="display:block; text-align:center;">Tambah Data Sertifikat</h3>
 
-  <form id="form-tambah-sertifikat" method="POST">
-    <table class="table table-striped"> 
+    <form id="form-tambah-sertifikat" method="POST">
+        <table class="table table-striped">
 
-      <tr>
-        
-        <td>Sertifikat Sumber Benih</td>
-        <td>:</td>
-        <td> <?php echo combo_box_data_w_name($dataSertifikat, 'id_sertifikat', 'sert_sumber_benih','no_sertifikat');?></td>
+            <tr>
+
+                <td>Sertifikat Sumber Benih</td>
+                <td>:</td>
+                <td> <?php echo combo_box_data_w_name($dataSertifikat, 'id_sertifikat', 'sert_sumber_benih', 'no_sertifikat'); ?></td>
 
 
-      </tr>
+            </tr>
 
-      <tr>  
-        
-        <td>Nomor Sertifikat</td>
-        <td>:</td>
-        <td> <input type="text" class="form-control" placeholder="Nomor Sertifikat" name="no_sertifikat" aria-describedby="sizing-addon2"></td>
+            <tr>
 
-      </tr>
+                <td>Nomor Sertifikat</td>
+                <td>:</td>
+                <td> <input type="text" class="form-control" placeholder="Nomor Sertifikat" name="no_sertifikat" aria-describedby="sizing-addon2"></td>
 
-      <tr>  
-        
-        <td>Pemilik</td>
-        <td>:</td>
-        <td>  <?php echo combo_box_data_produsen($dataProdusen, 'id_produsen', 'nama_perusahaan');?></td>
+            </tr>
 
-      </tr>
+            <tr>
 
-      <tr>  
-        
-        <td>Benih</td>
-        <td>:</td>
-        <td>  <?php echo combo_box_data_benih($dataBenih, 'id_benih', 'komoditi');?></td>
+                <td>Pemilik</td>
+                <td>:</td>
+                <td> <?php echo combo_box_data_produsen($dataProdusen, 'id_produsen', 'nama_perusahaan'); ?></td>
 
-      </tr>
+            </tr>
 
-      <tr>  
-        
-        <td>Pengawas</td>
-        <td>:</td>
-        <td> <input type="text" class="form-control" placeholder="Pengawas" name="pengawas" aria-describedby="sizing-addon2"></td>
+            <tr>
 
-      </tr>
+                <td>Benih</td>
+                <td>:</td>
+                <td> <?php echo combo_box_data_benih($dataBenih, 'id_benih', 'komoditi'); ?></td>
 
-      <tr>  
-        
-        <td>Masa Berlaku</td>
-        <td>:</td>
-        <td> <input type="date" class="form-control" placeholder="Masa Berlaku Sertifikat" name="masa_berlaku" aria-describedby="sizing-addon2"></td>
 
-      </tr>
 
-    </table> 
-    
-    <!-- <div class="input-group form-group">
+
+            </tr>
+
+            <tr>
+
+                <td>Pengawas</td>
+                <td>:</td>
+                <td> <input type="text" class="form-control" placeholder="Pengawas" name="pengawas" aria-describedby="sizing-addon2"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Masa Berlaku</td>
+                <td>:</td>
+                <td> <input type="date" class="form-control" placeholder="Masa Berlaku Sertifikat" name="masa_berlaku" aria-describedby="sizing-addon2"></td>
+
+            </tr>
+
+        </table>
+
+        <!-- <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-file"></i>
       </span>
       <?php 
-        echo combo_box_data_w_name($dataSertifikat, 'id_sertifikat', 'sert_sumber_benih','no_sertifikat');
+      echo combo_box_data_w_name($dataSertifikat, 'id_sertifikat', 'sert_sumber_benih', 'no_sertifikat');
       ?>
     </div>
     <div class="input-group form-group">
@@ -76,7 +79,7 @@
         <i class="glyphicon glyphicon-home"></i>
       </span>
       <?php 
-        echo combo_box_data_produsen($dataProdusen, 'id_produsen', 'nama_perusahaan');
+      echo combo_box_data_produsen($dataProdusen, 'id_produsen', 'nama_perusahaan');
       ?>
     </div>
     <div class="input-group form-group">
@@ -84,7 +87,7 @@
         <i class="glyphicon glyphicon-home"></i>
       </span>
       <?php 
-        echo combo_box_data_benih($dataBenih, 'id_benih', 'komoditi');
+      echo combo_box_data_benih($dataBenih, 'id_benih', 'komoditi');
       ?>
     </div>
     <div class="input-group form-group">
@@ -101,7 +104,7 @@
     </div> -->
 
 
-    <!-- <div class="input-group form-group">
+        <!-- <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-leaf"></i>
       </span>
@@ -143,22 +146,30 @@
       </span>
       <input type="date" class="form-control" placeholder="Akhir Masa Edar Benih" name="akhir_masa_edar" aria-describedby="sizing-addon2">
     </div> -->
-    <div class="form-group">
-      <div class="col-md-12">
-          <button type="submit" class="form-control btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> Tambah Data</button>
-      </div>
-    </div>
-  </form>
+        <div class="form-group">
+            <div class="col-md-12">
+                <button type="submit" class="form-control btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> Tambah Data</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 
 <script type="text/javascript">
-$(function () {
-    $(".select2").select2();
+    $(function() {
+        $(".select2").select2();
 
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_flat-blue',
-      radioClass: 'iradio_flat-blue'
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_flat-blue',
+            radioClass: 'iradio_flat-blue'
+        });
     });
-});
-</script>
+
+    // $(document).ready(function() {
+
+    // if(window.location.href.indexOf('#test') != -1) {
+    //   $('#test').modal('show');
+    // }
+
+    // });
+</script> 

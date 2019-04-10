@@ -262,6 +262,9 @@
 
 			echo "<option value='".$datum->$value."' ".$terpilih.">".$datum->$text."</option>";
 		}
+
+		// echo "<a href='". base_url('Benih')."'><option>Tambah Benih</option></a>";
+
 		echo "</select>";
 	}
 	

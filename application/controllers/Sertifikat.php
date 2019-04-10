@@ -1,15 +1,18 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Sertifikat extends AUTH_Controller {
-	public function __construct() {
+class Sertifikat extends AUTH_Controller
+{
+	public function __construct()
+	{
 		parent::__construct();
-    $this->load->model('M_sertifikat');
-    $this->load->model('M_produsen');
-    $this->load->model('M_benih');
+		$this->load->model('M_sertifikat');
+		$this->load->model('M_produsen');
+		$this->load->model('M_benih');
 	}
 
-	public function index() {
+	public function index()
+	{
 		$data['userdata'] = $this->userdata;
 		$data['dataSertifikat'] = $this->M_sertifikat->select_all();
 
@@ -23,15 +26,22 @@ class Sertifikat extends AUTH_Controller {
 		$data['modal_tambah_sertifikat'] = show_my_modal('modals/modal_tambah_sertifikat', 'tambah-sertifikat', $data);
 
 		$this->template->views('sertifikat/home', $data);
+		// $this->load->view('templates_admin/header', $data);
+		// $this->load->view('templates_admin/sidebar', $data);
+		// $this->load->view('templates_admin/topbar', $data);
+		// $this->load->view('sertifikat/home', $data);
+		// $this->load->view('templates_admin/footer', $data);
 	}
 
-	public function tampil() {
+	public function tampil()
+	{
 		$data['dataSertifikat'] = $this->M_sertifikat->select_all();
 		$data['modelSertif'] = $this->M_sertifikat;
 		$this->load->view('sertifikat/list_data', $data);
 	}
 
-	public function prosesTambah() {
+	public function prosesTambah()
+	{
 		$this->form_validation->set_rules('no_sertifikat', 'No Sertifikat', 'trim|required');
 		$this->form_validation->set_rules('id_produsen', 'Nama Pemilik', 'trim|required');
 		$this->form_validation->set_rules('id_benih', 'Benih', 'trim|required');
@@ -39,7 +49,7 @@ class Sertifikat extends AUTH_Controller {
 		$this->form_validation->set_rules('masa_berlaku', 'Masa Berlaku', 'trim|required');
 
 		$data = $this->input->post();
-		if ($this->form_validation->run() == TRUE) {
+		if ($this->form_validation->run() == true) {
 			$result = $this->M_sertifikat->insert($data);
 
 			if ($result > 0) {
@@ -57,7 +67,8 @@ class Sertifikat extends AUTH_Controller {
 		echo json_encode($out);
 	}
 
-	public function update() {
+	public function update()
+	{
 		$id = trim($_POST['id']);
 
 		$data['dataSertifikat'] = $this->M_sertifikat->select_by_id($id);
@@ -69,7 +80,8 @@ class Sertifikat extends AUTH_Controller {
 		echo show_my_modal('modals/modal_update_sertifikat', 'update-sertifikat', $data);
 	}
 
-	public function prosesUpdate() {
+	public function prosesUpdate()
+	{
 		$this->form_validation->set_rules('no_sertifikat', 'No Sertifikat', 'trim|required');
 		$this->form_validation->set_rules('id_produsen', 'Nama Pemilik', 'trim|required');
 		$this->form_validation->set_rules('komoditi', 'Komoditas', 'trim|required');
@@ -82,7 +94,7 @@ class Sertifikat extends AUTH_Controller {
 		$this->form_validation->set_rules('masa_berlaku', 'Masa Berlaku', 'trim|required');
 
 		$data = $this->input->post();
-		if ($this->form_validation->run() == TRUE) {
+		if ($this->form_validation->run() == true) {
 			$result = $this->M_sertifikat->update($data);
 
 			if ($result > 0) {
@@ -100,7 +112,8 @@ class Sertifikat extends AUTH_Controller {
 		echo json_encode($out);
 	}
 
-	public function delete() {
+	public function delete()
+	{
 		$id = $_POST['id'];
 		$result = $this->M_sertifikat->delete($id);
 
@@ -111,7 +124,8 @@ class Sertifikat extends AUTH_Controller {
 		}
 	}
 
-	public function detail() {
+	public function detail()
+	{
 		$data['userdata'] 	= $this->userdata;
 
 		$id 								= trim($_POST['id']);
@@ -123,4 +137,3 @@ class Sertifikat extends AUTH_Controller {
 }
 
 /* End of file Sertifikat.php */
-/* Location: ./application/controllers/Sertifikat.php */
