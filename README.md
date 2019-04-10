@@ -1,12 +1,4 @@
-# AdminLTE-CRUD-With-Codeigniter
-CRUD dengan Template Admin LTE menggunakan Codeigniter
-
-Fitur : 
-  1. CRUD with Ajax
-  2. Datatable
-  3. Export dan Import ke Excel
-  4. Chart
-  
+# Aplikasi Traceability Sertifikat Benih Unggul PT Riset Perkebunan Nusantara
 Akun Login :
-  1. username : auwfar / password : auwfar
-  2. username : ozil / password : ozil
+  1. username : okta / password : 123
+  2. username : rpn-user / password : 1234
